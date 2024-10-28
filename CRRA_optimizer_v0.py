@@ -95,8 +95,8 @@ print("\nTangency Portfolio (Maximum Sharpe Ratio):")
 for i, weight in enumerate(tangent_weights):
     print(f"Asset {i+1}: {weight:.2%}")
 
-print(f"Expected Return: {tangent_return:.2%}")
-print(f"Portfolio Risk (Standard Deviation): {tangent_std_dev:.2%}")
+print(f"Return: {tangent_return:.2%}")
+print(f"Standard Deviation: {tangent_std_dev:.2%}")
 
 # plot tangency portfolio
 plt.scatter(tangent_std_dev, tangent_return, color='orange', marker='D', s=100, label='Tangency Portfolio')
@@ -106,9 +106,9 @@ cml_x = np.linspace(0, max(portfolio_std_devs.max(), tangent_std_dev * 1.5), 100
 cml_y = risk_free_rate + (tangent_return - risk_free_rate) / tangent_std_dev * cml_x
 plt.plot(cml_x, cml_y, color='blue', linestyle='--', label='Capital Market Line (CML)')
 
-plt.xlabel('Portfolio Risk (Standard Deviation)')
-plt.ylabel('Portfolio Return')
-plt.title('Efficient Frontier and Capital Market Line')
+plt.xlabel('Standard Deviation')
+plt.ylabel('Return')
+plt.title('Efficient Frontier')
 plt.legend()
 plt.grid(True)
 
